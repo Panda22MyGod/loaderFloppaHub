@@ -11,6 +11,7 @@ local LocalPlayer = Players.LocalPlayer
 
 local SCRIPT_URL_GAME1 = "https://raw.githubusercontent.com/Panda22MyGod/OpiumVisualsNew/refs/heads/main/opiumvisuals.lua.lua"
 local SCRIPT_URL_GAME2 = "https://pastebin.com/raw/nuiWizFN"
+local SCRIPT_URL_GAME3 = "https://pastebin.com/raw/zH0sYHDA"
 local CLICK_SOUND_ID   = "rbxassetid://6895079853"
 local BG_IMAGE_ID      = "rbxassetid://6568460777"
 
@@ -207,6 +208,38 @@ G2L["1f"]["Size"] = UDim2.new(1, 0, 1, 0)
 G2L["1f"]["BorderColor3"] = BLACK_COLOR
 G2L["1f"]["Text"] = [[Prison Life]]
 G2L["1f"]["ZIndex"] = 6
+
+G2L["1g"] = Instance.new("TextButton", G2L["6"])
+G2L["1g"]["BackgroundColor3"] = Color3.fromRGB(25, 25, 25)
+G2L["1g"]["BackgroundTransparency"] = 0.15
+G2L["1g"]["Size"] = UDim2.new(0, 96, 0, 34)
+G2L["1g"]["Position"] = UDim2.new(0, 10, 0, 100)
+G2L["1g"]["BorderColor3"] = BLACK_COLOR
+G2L["1g"]["Name"] = [[Flick]]
+G2L["1g"]["Text"] = ""
+G2L["1g"]["AutoButtonColor"] = false
+G2L["1g"]["ZIndex"] = 5
+
+G2L["1h"] = Instance.new("UIStroke", G2L["1g"])
+G2L["1h"]["Color"] = GRAY_STROKE
+G2L["1h"]["Thickness"] = 1
+G2L["1h"]["LineJoinMode"] = Enum.LineJoinMode.Miter
+G2L["1h"]["BorderStrokePosition"] = Enum.BorderStrokePosition.Inner
+
+G2L["1i"] = Instance.new("TextLabel", G2L["1g"])
+G2L["1i"]["TextStrokeTransparency"] = 0
+G2L["1i"]["TextStrokeColor3"] = BLACK_COLOR
+G2L["1i"]["BorderSizePixel"] = 0
+G2L["1i"]["TextSize"] = 14
+G2L["1i"]["TextScaled"] = false
+G2L["1i"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+G2L["1i"]["FontFace"] = Font.new([[rbxassetid://16658221428]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+G2L["1i"]["TextColor3"] = INACTIVE_TXT
+G2L["1i"]["BackgroundTransparency"] = 1
+G2L["1i"]["Size"] = UDim2.new(1, 0, 1, 0)
+G2L["1i"]["BorderColor3"] = BLACK_COLOR
+G2L["1i"]["Text"] = [[Flick]]
+G2L["1i"]["ZIndex"] = 6
 
 G2L["9"] = Instance.new("TextButton", G2L["7"])
 G2L["9"]["BackgroundColor3"] = Color3.fromRGB(16, 15, 13)
@@ -472,6 +505,7 @@ local PulseTexts = {
     {label = G2L["24"], base = 0},
     {label = G2L["1c"], base = 0},
     {label = G2L["1f"], base = 0},
+    {label = G2L["1i"], base = 0},
     {label = G2L["b"],  base = 0},
     {label = G2L["e"],  base = 0},
     {label = G2L["10"], base = 0.24},
@@ -565,9 +599,14 @@ local tab2 = registerTab(G2L["1d"], G2L["1f"], G2L["1e"], function()
     CurrentCheat = "prisonlife"
 end)
 
+local tab3 = registerTab(G2L["1g"], G2L["1i"], G2L["1h"], function()
+    CurrentCheat = "flick"
+end)
+
 ActiveTab = tab1
 setTabActive(tab1, true)
 setTabActive(tab2, false)
+setTabActive(tab3, false)
 
 bindButton(G2L["9"], function()
     if CurrentCheat == "floppa" then
@@ -582,6 +621,12 @@ bindButton(G2L["9"], function()
             loadstring(src)()
         end)
         if not ok then warn("[Floppa Loader] Ошибка Prison Life: " .. tostring(err)) end
+    elseif CurrentCheat == "flick" then
+        local ok, err = pcall(function()
+            local src = game:HttpGet(SCRIPT_URL_GAME3)
+            loadstring(src)()
+        end)
+        if not ok then warn("[Floppa Loader] Ошибка Flick: " .. tostring(err)) end
     end
 end)
 
