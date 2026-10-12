@@ -9,9 +9,10 @@ local Debris           = game:GetService("Debris")
 
 local LocalPlayer = Players.LocalPlayer
 
-local SCRIPT_URL     = "https://raw.githubusercontent.com/Panda22MyGod/OpiumVisualsNew/refs/heads/main/opiumvisuals.lua.lua"
-local CLICK_SOUND_ID = "rbxassetid://6895079853"
-local BG_IMAGE_ID    = "rbxassetid://6568460777"
+local SCRIPT_URL_GAME1 = "https://raw.githubusercontent.com/Panda22MyGod/OpiumVisualsNew/refs/heads/main/opiumvisuals.lua.lua"
+local SCRIPT_URL_GAME2 = "https://pastebin.com/raw/nuiWizFN"
+local CLICK_SOUND_ID   = "rbxassetid://6895079853"
+local BG_IMAGE_ID      = "rbxassetid://6568460777"
 
 local BLUE_COLOR   = Color3.fromRGB(52, 120, 151)
 local BLACK_COLOR  = Color3.fromRGB(0, 0, 0)
@@ -180,7 +181,7 @@ G2L["1d"]["BackgroundTransparency"] = 0.15
 G2L["1d"]["Size"] = UDim2.new(0, 96, 0, 34)
 G2L["1d"]["Position"] = UDim2.new(0, 10, 0, 56)
 G2L["1d"]["BorderColor3"] = BLACK_COLOR
-G2L["1d"]["Name"] = [[Game 2]]
+G2L["1d"]["Name"] = [[Prison Life]]
 G2L["1d"]["Text"] = ""
 G2L["1d"]["AutoButtonColor"] = false
 G2L["1d"]["ZIndex"] = 5
@@ -195,15 +196,16 @@ G2L["1f"] = Instance.new("TextLabel", G2L["1d"])
 G2L["1f"]["TextStrokeTransparency"] = 0
 G2L["1f"]["TextStrokeColor3"] = BLACK_COLOR
 G2L["1f"]["BorderSizePixel"] = 0
-G2L["1f"]["TextSize"] = 14
+G2L["1f"]["TextSize"] = 13
 G2L["1f"]["TextScaled"] = false
+G2L["1f"]["TextWrapped"] = true
 G2L["1f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 G2L["1f"]["FontFace"] = Font.new([[rbxassetid://16658221428]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 G2L["1f"]["TextColor3"] = INACTIVE_TXT
 G2L["1f"]["BackgroundTransparency"] = 1
 G2L["1f"]["Size"] = UDim2.new(1, 0, 1, 0)
 G2L["1f"]["BorderColor3"] = BLACK_COLOR
-G2L["1f"]["Text"] = [[Game 2]]
+G2L["1f"]["Text"] = [[Prison Life]]
 G2L["1f"]["ZIndex"] = 6
 
 G2L["9"] = Instance.new("TextButton", G2L["7"])
@@ -560,7 +562,7 @@ local tab1 = registerTab(G2L["1a"], G2L["1c"], G2L["1b"], function()
 end)
 
 local tab2 = registerTab(G2L["1d"], G2L["1f"], G2L["1e"], function()
-    CurrentCheat = "game2"
+    CurrentCheat = "prisonlife"
 end)
 
 ActiveTab = tab1
@@ -570,10 +572,16 @@ setTabActive(tab2, false)
 bindButton(G2L["9"], function()
     if CurrentCheat == "floppa" then
         local ok, err = pcall(function()
-            local src = game:HttpGet(SCRIPT_URL)
+            local src = game:HttpGet(SCRIPT_URL_GAME1)
             loadstring(src)()
         end)
-        if not ok then warn("[Floppa Loader] Ошибка: " .. tostring(err)) end
+        if not ok then warn("[Floppa Loader] Ошибка Floppa Universal: " .. tostring(err)) end
+    elseif CurrentCheat == "prisonlife" then
+        local ok, err = pcall(function()
+            local src = game:HttpGet(SCRIPT_URL_GAME2)
+            loadstring(src)()
+        end)
+        if not ok then warn("[Floppa Loader] Ошибка Prison Life: " .. tostring(err)) end
     end
 end)
 
