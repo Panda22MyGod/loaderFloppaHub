@@ -13,7 +13,7 @@ local SCRIPT_URL_GAME1 = "https://raw.githubusercontent.com/Panda22MyGod/OpiumVi
 local SCRIPT_URL_GAME2 = "https://pastebin.com/raw/nuiWizFN"
 local SCRIPT_URL_GAME3 = "https://pastebin.com/raw/zH0sYHDA"
 local SCRIPT_URL_GAME4 = "https://raw.githubusercontent.com/Panda22MyGod/floppahubVagrantSurvival/refs/heads/main/vagrantsurvival.txt"
-local SCRIPT_URL_GAME5 = "https://raw.githubusercontent.com/Panda22MyGod/FloppaRostAlphaOBF/refs/heads/main/SodiumSourc.txt"
+local SCRIPT_URL_GAME5 = "https://raw.githubusercontent.com/Panda22MyGod/loaderFloppaHub/refs/heads/main/flopahubRostOBGFFF.txt"
 local CLICK_SOUND_ID   = "rbxassetid://6895079853"
 local BG_IMAGE_ID      = "rbxassetid://6568460777"
 
